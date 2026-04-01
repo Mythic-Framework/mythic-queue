@@ -520,6 +520,7 @@ function RetrieveComponents()
 	Chat = exports["mythic-base"]:FetchComponent("Chat")
 	Execute = exports["mythic-base"]:FetchComponent("Execute")
 	Sequence = exports["mythic-base"]:FetchComponent("Sequence")
+	Version = exports["mythic-base"]:FetchComponent("Version")
 end
 
 AddEventHandler("Core:Shared:Ready", function()
@@ -533,6 +534,7 @@ AddEventHandler("Core:Shared:Ready", function()
 		"Chat",
 		"Execute",
 		"Sequence",
+		"Version",
 	}, function(error)
 		if #error > 0 then
 			return
@@ -592,6 +594,8 @@ AddEventHandler("Core:Shared:Ready", function()
 				},
 			},
 		}, 1)
+
+		Version:Check('Mythic-Framework/Mythic-VersionCheckers', GetCurrentResourceName())
 	end)
 end)
 
